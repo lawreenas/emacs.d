@@ -324,7 +324,6 @@
 ;; =======
 (require 'delight)
 (delight '((auto-complete-mode nil "auto-complete")
-           (js-mode "JS" :major)
            (helm-mode nil "helm-mode")
            (undo-tree-mode nil "undo-tree")
            (haskell-doc-mode nil "haskell-doc")
@@ -505,8 +504,12 @@ Misc: [_a_]propos [_i_]nspect [_s_]cratch [_r_]efresh [_t_]race"
    (local-set-key (kbd "C-c C-f") 'hs-toggle-hiding)))
 
 ;; js2-mode settings
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
+;; ===================
+
+;;(require 'js2-mode)
+(add-to-list
+ 'auto-mode-alist
+ '("\\.js\\'" . js2-mode))
 
 (provide 'init)
 ;;; init.el ends here

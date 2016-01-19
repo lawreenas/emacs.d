@@ -71,7 +71,7 @@
  '(org-startup-truncated nil)
  '(package-selected-packages
    (quote
-    (smart-mode-line seq beacon hydra zenburn-theme yaml-mode whitespace-cleanup-mode web-mode toml-mode solarized-theme sml-mode smartparens scss-mode rust-mode restclient rainbow-delimiters paradox nose markdown-mode magit less-css-mode json-mode javadoc-lookup inf-ruby iedit hemisu-theme helm-swoop helm-projectile haskell-mode gitconfig-mode fuzzy flycheck f expand-region exec-path-from-shell elpy eclipse-theme dockerfile-mode discover-my-major delight company-tern coffee-mode cider buffer-move avy auto-complete ace-jump-mode)))
+    (js2-mode smart-mode-line seq beacon hydra zenburn-theme yaml-mode whitespace-cleanup-mode web-mode toml-mode solarized-theme sml-mode smartparens scss-mode rust-mode restclient rainbow-delimiters paradox nose markdown-mode magit less-css-mode json-mode javadoc-lookup inf-ruby iedit hemisu-theme helm-swoop helm-projectile haskell-mode gitconfig-mode fuzzy flycheck f expand-region exec-path-from-shell elpy eclipse-theme dockerfile-mode discover-my-major delight company-tern coffee-mode cider buffer-move avy auto-complete ace-jump-mode)))
  '(paradox-execute-asynchronously t)
  '(paradox-github-token t)
  '(pos-tip-background-color "#073642")
