@@ -466,6 +466,7 @@ Misc: [_a_]propos [_i_]nspect [_s_]cratch [_r_]efresh [_t_]race"
 (global-set-key (kbd "C-c s") 'helm-swoop)
 (global-set-key (kbd "C-c h") 'helm-projectile)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-c k") 'helm-show-kill-ring)
 (global-set-key (kbd "C-c SPC") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "M-g f") 'avy-goto-line)
 (global-set-key (kbd "C-;") #'comment-line)
