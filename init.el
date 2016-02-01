@@ -43,10 +43,12 @@
   (package-refresh-contents))
 (package-install-selected-packages)
 
-;; ====
-;; Misc
-;; ====
-(load-theme 'smart-mode-line-dark t)
+;; =====
+;; Theme
+;; =====
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/zenburn-emacs")
+(load-theme 'zenburn t)
+
 
 ;; ========
 ;; Mac OS X
@@ -91,9 +93,13 @@
 ;; Flycheck
 (add-hook 'after-init-hook 'global-flycheck-mode)
 
-;; org
+;; Org
 (require 'org)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+;; langauges we want org-babel to support
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((sh . t)))
 
 ;; restclient-mode
 (require 'restclient)
@@ -465,7 +471,10 @@ Misc: [_a_]propos [_i_]nspect [_s_]cratch [_r_]efresh [_t_]race"
 (global-set-key (kbd "C-h M-m") 'discover-my-mode)
 (global-set-key (kbd "C-c s") 'helm-swoop)
 (global-set-key (kbd "C-c h") 'helm-projectile)
-(global-set-key (kbd "C-x b") 'helm-buffers-list)
+;; (global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(setq helm-buffers-fuzzy-matching t
+      helm-recentf-fuzzy-match    t)
 (global-set-key (kbd "C-c k") 'helm-show-kill-ring)
 (global-set-key (kbd "C-c SPC") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "M-g f") 'avy-goto-line)
