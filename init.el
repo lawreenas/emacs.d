@@ -3,6 +3,30 @@
 ;;; All the editor related configs are placed or and required here
 ;;; Code:
 
+;; ========
+;; Package
+;; List of packages: package-selected-packages
+;; ========
+
+;; TODO: Try using use-package to load packages
+;; https://github.com/jwiegley/use-package
+
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("gnu" . "http://elpa.gnu.org/packages/")))
+
+(add-to-list 'load-path  "~/.emacs.d/settings/")
+
+(package-initialize)
+
+(setq custom-file "~/.emacs.d/emacs-custom.el")
+(load custom-file)
+
+;; Install packages
+(when (not package-archive-contents)
+  (package-refresh-contents))
+(package-install-selected-packages)
+
 ;; ===========
 ;; Look & Feel
 ;; ===========
@@ -18,8 +42,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (put 'erase-buffer 'disabled nil)
-(setq custom-file "~/.emacs.d/emacs-custom.el")
-(load custom-file)
+
 
 ;; =======
 ;; Backups
@@ -31,24 +54,15 @@
   kept-old-versions 2
   version-control t)
 
-;; ========
-;; Package
-;; List of packages: package-selected-packages
-;; ========
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize)
-(when (not package-archive-contents)
-  (package-refresh-contents))
-(package-install-selected-packages)
-
 ;; =====
 ;; Theme
 ;; =====
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/zenburn-emacs")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+;;(load-theme 'dracula t)
 (load-theme 'zenburn t)
+;; (load-theme 'material t)
 
+;;(require 'theme-patch)
 
 ;; ========
 ;; Mac OS X
@@ -57,8 +71,8 @@
 ;;
 (when (equal system-type 'darwin)
   ;; (set-frame-font "Input Mono Narrow-12")
-  ;;(set-frame-font "Monaco-14")
-  (set-frame-font "Menlo-13")
+  ;; (set-frame-font "Monaco-12")
+  (set-frame-font "Menlo-12")
   (setq mac-option-modifier 'super)
   (setq mac-command-modifier 'meta)
   (setq ns-function-modifier 'hyper)
@@ -94,7 +108,15 @@
 (add-hook 'after-init-hook 'global-flycheck-mode)
 
 ;; Org
+
+;; Avy
+(setq avy-background t)
+
+;; Fix ORG-mode to allow window switch
+(setq org-replace-disputed-keys t)
 (require 'org)
+
+
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 ;; langauges we want org-babel to support
 (org-babel-do-load-languages
@@ -147,11 +169,6 @@
  '(helm-M-x-fuzzy-match t)
  '(helm-locate-fuzzy-match t))
 
-
- (add-to-list
-  'load-path
-  (expand-file-name "settings" user-emacs-directory))
-
 ;; Haskell
 ;; =======
 ;;(require 'lang-haskell)
@@ -191,6 +208,9 @@
           (lambda ()
             (tern-mode t)
             (setq-local company-backends '(company-tern))))
+
+;; Line numbers (relative)
+(linum-relative-global-mode)
 
 ;; Go
 ;; ==
@@ -323,6 +343,7 @@
 
 ;; Status line
 ;; ===========
+
 (sml/setup)
 (setq rm-blacklist
       (mapconcat
@@ -374,16 +395,8 @@ Kill:  [_o_]nly [_w_]indow [_b_]uffer [_f_]rame"
    ("r" winner-redo)
    ("q" nil)))
 
-(global-set-key
- (kbd "C-x g")
- (defhydra hydra-magit (:exit t :hint nil)
-   "
-magit: [_s_]tatus, [_l_]og, [_p_]ush, [_r_]eview"
-   ("s" magit-status)
-   ("l" magit-log)
-   ("p" magit-push)
-   ("r" magit-show-commit)
-   ("q" nil nil)))
+(global-set-key (kbd "C-x g s") 'magit-status)
+(global-set-key (kbd "C-x g l") 'magit-log)
 
 (global-set-key
  (kbd "C-M-h")
@@ -473,6 +486,7 @@ Misc: [_a_]propos [_i_]nspect [_s_]cratch [_r_]efresh [_t_]race"
 (global-set-key (kbd "C-c h") 'helm-projectile)
 ;; (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-c b") 'helm-projectile-switch-to-buffer)
 (setq helm-buffers-fuzzy-matching t
       helm-recentf-fuzzy-match    t)
 (global-set-key (kbd "C-c k") 'helm-show-kill-ring)
@@ -484,7 +498,8 @@ Misc: [_a_]propos [_i_]nspect [_s_]cratch [_r_]efresh [_t_]race"
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-s") 'helm-swoop)
 ;;(global-set-key (kbd "C-j") 'ace-jump-char-mode)
-(global-set-key (kbd "C-j") 'avy-goto-char)
+(global-set-key (kbd "C-c j") 'avy-goto-char)
+(global-set-key (kbd "C-j") 'avy-goto-char-timer)
 
 (add-hook
  'prog-mode-hook
@@ -498,6 +513,23 @@ Misc: [_a_]propos [_i_]nspect [_s_]cratch [_r_]efresh [_t_]race"
 (add-to-list
  'auto-mode-alist
  '("\\.js\\'" . js2-mode))
+
+(add-hook 'typescript-mode-hook
+          (lambda ()
+            (tide-setup)
+            (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
+            (setq-local typescript-indent-level 2)
+            (eldoc-mode)
+            (company-mode-on)))
+
+
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+;; (defalias 'find-file 'helm-find-files)
+;;(defalias 'ido-find-file 'helm-find-files)
+
+
+(when (equal system-type 'darwin)
+  (setq helm-locate-command "mdfind -name %s %s") (setq helm-locate-fuzzy-match nil))
 
 (provide 'init)
 ;;; init.el ends here

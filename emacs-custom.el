@@ -17,8 +17,8 @@
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
-    ("f024aea709fb96583cf4ced924139ac60ddca48d25c23a9d1cd657a2cf1e4728" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "f25c30c1de1994cc0660fa65c6703706f3dc509a342559e3b5b2102e50d83e4f" "c1fb68aa00235766461c7e31ecfc759aa2dd905899ae6d95097061faeb72f9ee" "77bd459212c0176bdf63c1904c4ba20fce015f730f0343776a1a14432de80990" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "f5eb916f6bd4e743206913e6f28051249de8ccfd070eae47b5bde31ee813d55f" "7feeed063855b06836e0262f77f5c6d3f415159a98a9676d549bfeb6c49637c4" default)))
- '(fci-rule-color "#383838")
+    ("316d29f8cd6ca980bf2e3f1c44d3a64c1a20ac5f825a167f76e5c619b4e92ff4" "949cfd4a96205b2d5e6a2ac0d2c2d0534843a55d51387cc6b6ee03a0e61fba57" "d8f76414f8f2dcb045a37eb155bfaa2e1d17b6573ed43fb1d18b936febc7bbc2" "e5b3be70fd27f820c67bd87a08b4fbb8b5330d8200b2c85102c5a614975f319e" "d7895a864bc82c048088224b45adb4b4d11c7ed2b973e77a30810fe969a6748c" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "48373328e7ead33ed0161ad096c688376f65a617c3fcafd62dbfe814fff12a1e" "f21a0c90d189caf15bf1b6808336a281017b222af7401cd056fa457fbd314d96" "3625c04fa4b8a802e96922d2db3f48c9cb2f93526e1dc24ba0b400e4ee4ccd8a" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "68d36308fc6e7395f7e6355f92c1dd9029c7a672cbecf8048e2933a053cf27e6" "f024aea709fb96583cf4ced924139ac60ddca48d25c23a9d1cd657a2cf1e4728" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "f25c30c1de1994cc0660fa65c6703706f3dc509a342559e3b5b2102e50d83e4f" "c1fb68aa00235766461c7e31ecfc759aa2dd905899ae6d95097061faeb72f9ee" "77bd459212c0176bdf63c1904c4ba20fce015f730f0343776a1a14432de80990" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "f5eb916f6bd4e743206913e6f28051249de8ccfd070eae47b5bde31ee813d55f" "7feeed063855b06836e0262f77f5c6d3f415159a98a9676d549bfeb6c49637c4" default)))
+ '(fci-rule-color "#37474f")
  '(flx-ido-mode nil)
  '(flx-ido-threshold 500)
  '(font-lock-global-modes (quote (not speedbar-mode)))
@@ -71,7 +71,7 @@
  '(org-startup-truncated nil)
  '(package-selected-packages
    (quote
-    (js2-mode smart-mode-line seq beacon hydra zenburn-theme yaml-mode whitespace-cleanup-mode web-mode toml-mode solarized-theme sml-mode smartparens scss-mode rust-mode restclient rainbow-delimiters paradox nose markdown-mode magit less-css-mode json-mode javadoc-lookup inf-ruby iedit hemisu-theme helm-swoop helm-projectile haskell-mode gitconfig-mode fuzzy flycheck f expand-region exec-path-from-shell elpy eclipse-theme dockerfile-mode discover-my-major delight company-tern coffee-mode cider buffer-move avy auto-complete ace-jump-mode)))
+    (tide spacegray-theme js2-mode smart-mode-line seq beacon hydra zenburn-theme yaml-mode whitespace-cleanup-mode web-mode toml-mode solarized-theme sml-mode smartparens scss-mode rust-mode restclient rainbow-delimiters paradox nose markdown-mode magit less-css-mode json-mode javadoc-lookup inf-ruby iedit hemisu-theme helm-swoop helm-projectile haskell-mode gitconfig-mode fuzzy flycheck f expand-region exec-path-from-shell elpy eclipse-theme dockerfile-mode discover-my-major delight company-tern coffee-mode cider buffer-move avy auto-complete ace-jump-mode)))
  '(paradox-execute-asynchronously t)
  '(paradox-github-token t)
  '(pos-tip-background-color "#073642")
