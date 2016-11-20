@@ -71,10 +71,10 @@
 ;;
 (when (equal system-type 'darwin)
   ;; (set-frame-font "Input Mono Narrow-12")
-  ;; (set-frame-font "Monaco-12")
-  (set-frame-font "Menlo-12")
+  (set-frame-font "Monaco-12")
+  ;; (set-frame-font "Menlo-12")
   (setq mac-option-modifier 'super)
-  (setq mac-command-modifier 'meta)
+  (setq mac-command-modifier  'meta)
   (setq ns-function-modifier 'hyper)
   (exec-path-from-shell-initialize))
 
@@ -202,7 +202,7 @@
 ;; JavaScript
 ;; ==========
 (custom-set-variables
- '(js-indent-level 4))
+ '(js-indent-level 2))
 
 (add-hook 'js-mode-hook
           (lambda ()
@@ -237,9 +237,9 @@
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 
 (defun my-web-mode-hook ()
-  (setq-local web-mode-markup-indent-offset 4)
-  (setq-local web-mode-code-indent-offset 4)
-  (setq-local web-mode-css-indent-offset 4)
+  (setq-local web-mode-markup-indent-offset 2)
+  (setq-local web-mode-code-indent-offset 2)
+  (setq-local web-mode-css-indent-offset 2)
   (setq-local web-mode-enable-auto-quoting nil))
 
 (add-hook 'web-mode-hook  'my-web-mode-hook)
