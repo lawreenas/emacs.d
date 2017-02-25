@@ -22,6 +22,12 @@
       helm-M-x-fuzzy-match t
       helm-locate-fuzzy-match t)
 
+(custom-set-variables
+  '(projectile-globally-ignored-directories
+     (quote
+      (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" "build" "node_modules" "bower_components" "target")))
+      )
+
 ;; (custom-set-variables
 ;; '(helm-recentf-fuzzy-match t)
 ;; '(helm-buffers-fuzzy-matching t)

@@ -1,5 +1,9 @@
 (require-package 'zenburn-theme)
 
+;; Settings
+;; ========
+(desktop-save-mode) ;;Reopen last item after close
+
 ;; Look & Feel
 ;; ===========
 (load-theme 'zenburn t)
