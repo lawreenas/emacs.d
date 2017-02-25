@@ -18,10 +18,18 @@
 
 ;; Setup modes
 (defconst *is-a-mac* (eq system-type 'darwin))
+
+;; Core things
+;; -----------
 (require 'init-osx)
 (require 'init-elpa)
 
+;; Editor styles
+;; -------------
 (require 'init-editor)
+
+;; Different additions
+;; -------------------
 (require 'init-projectile-helm)
 (require 'init-git)
 
