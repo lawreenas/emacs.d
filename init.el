@@ -23,6 +23,7 @@
 
 (require 'init-editor)
 (require 'init-projectile-helm)
+(require 'init-git)
 
 (when (file-exists-p custom-file)
   (load custom-file))

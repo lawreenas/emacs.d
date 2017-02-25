@@ -12,7 +12,7 @@
 ;; ====
 (require-package 'helm-swoop)
 
-(require 'helm-config)
+;;(require 'helm-config)
 
 (helm-mode 1)
 (helm-autoresize-mode 1)
