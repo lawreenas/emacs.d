@@ -6,17 +6,19 @@
 
 (package-initialize)
 
-;;(setq custom-file "~/.emacs.d/emacs-custom.el")
-;;(load custom-file)
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+
+(require 'init-benchmarking) ;; Measure startup time
+
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 (when (not package-archive-contents)
-(package-refresh-contents))
+  (package-refresh-contents))
 (package-install-selected-packages)
 
-
 ;; Setup modes
-
+(defconst *is-a-mac* (eq system-type 'darwin))
+(require 'init-osx)
 
 (when (file-exists-p custom-file)
   (load custom-file))
