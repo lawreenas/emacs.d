@@ -33,7 +33,7 @@
 (require 'init-projectile-helm)
 (require 'init-git)
 (require 'init-js)
-
+(require 'init-md)
 
 (when (file-exists-p custom-file)
   (load custom-file))
