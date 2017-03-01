@@ -34,6 +34,7 @@
 (require 'init-git)
 (require 'init-js)
 (require 'init-md)
+(require 'init-avy)
 
 (when (file-exists-p custom-file)
   (load custom-file))
