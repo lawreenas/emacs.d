@@ -8,22 +8,23 @@
 (prefer-coding-system 'utf-8)  ;; Encoding
 (windmove-default-keybindings) ;; Move from window to window using shift+arrow keys: S-<left> (right, up, down)
 
-
 ;; Settings - Company mode
 ;; =======================
 (require-package 'company-tern)
 (add-hook 'after-init-hook 'global-company-mode) ;; Autocomplete
 
-;; Status line
-;; ===========
-(require-package 'sml-mode)
-;;(sml/setup)
-;;(setq rm-blacklist
-;;      (mapconcat
-;;       'identity
-;;       '("WSC.*" "Projectile.*" "SP.*" "Helm" "(\\*)" "Doc" "Interactive" "Undo-Tree")
-;;       "\\|"))
+;; Whitespace cleanup
+;; ==================
+(require-package 'whitespace-cleanup-mode)
+(whitespace-cleanup)
+(add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
 
+;; Expand region
+;; https://github.com/magnars/expand-region.el
+(require-package 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C--") 'er/contract-region)
+(global-set-key (kbd "C-;") #'comment-line)
 
 ;; Look & Feel
 ;; ===========
@@ -38,6 +39,10 @@
 ;; ======
 (require-package 'beacon)
 (beacon-mode 1)        ;; Highlight cursor whenever it jumps to different window
+
+;; Linum-Mode
+;; ==========
+(global-linum-mode 1) ;; Show line numbers
 
 ;; Other
 ;; =====
