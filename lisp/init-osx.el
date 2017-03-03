@@ -9,8 +9,9 @@
 
   ;;(exec-path-from-shell-initialize) ;; TODO this should be working
 
-  (global-set-key (kbd "M-`") 'ns-next-frame)
-  (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
+  (global-set-key (kbd "M-`") 'ns-next-frame)       ;; Toggle frames
+  (global-set-key (kbd "M-h") 'ns-do-hide-emacs)    ;; Hide Emacs
+  (global-set-key (kbd "M-s-h") 'ns-do-hide-others) ;; Mac Hide Others
 )
 
 (provide 'init-osx)
