@@ -2,6 +2,8 @@
 
 ;; Settings
 ;; ========
+;; Global things and tweaks, to make overall experience better
+
 (setq inhibit-splash-screen t) ;; Dont show welcome screen
 (desktop-save-mode)            ;; Reopen last item after close
 (global-hl-line-mode)          ;; Highline current line
@@ -47,9 +49,9 @@
 ;; Other
 ;; =====
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
+(setq-default tab-width 2) ;; Set default indentation to 2 spaces
 
-
+(fset 'yes-or-no-p 'y-or-n-p) ;; Never type yes or no again
 
 
 (provide 'init-editor)

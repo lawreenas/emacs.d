@@ -11,5 +11,7 @@
 (add-to-list 'auto-mode-alist
              '("containers\\/.*\\.js\\'" . rjsx-mode))
 
+(custom-set-variables '(js-indent-level 2)) ;; Indentation
+
 
 (provide 'init-js)
