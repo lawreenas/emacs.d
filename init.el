@@ -31,6 +31,7 @@
 ;; Different additions
 ;; -------------------
 (require 'init-projectile-helm)
+(require 'init-smartparens)
 (require 'init-git)
 (require 'init-js)
 (require 'init-md)
