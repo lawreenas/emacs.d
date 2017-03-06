@@ -34,6 +34,7 @@
 (require 'init-smartparens)
 (require 'init-git)
 (require 'init-js)
+(require 'init-org)
 (require 'init-md)
 (require 'init-avy)
 
