@@ -1,46 +1,10 @@
-;;; Find and load the correct package.el
+;; Packages
 
-;; When switching between Emacs 23 and 24, we always use the bundled package.el in Emacs 24
-(let ((package-el-site-lisp-dir
-       (expand-file-name "site-lisp/package" user-emacs-directory)))
-  (when (and (file-directory-p package-el-site-lisp-dir)
-             (> emacs-major-version 23))
-    (message "Removing local package.el from load-path to avoid shadowing bundled version")
-    (setq load-path (remove package-el-site-lisp-dir load-path))))
-
-(require 'package)
-
-
-
-;;; Standard package repositories
-
-(when (< emacs-major-version 24)
-  ;; Mainly for ruby-mode
-  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")))
-
-;; We include the org repository for completeness, but don't normally
-;; use it.
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-
-(when (< emacs-major-version 24)
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-
-
-(defconst sanityinc/no-ssl (or (< emacs-major-version 24)
-                               (and (memq system-type '(windows-nt ms-dos))
-                                    (not (gnutls-available-p)))))
-
-;;; Also use Melpa for most packages
-(add-to-list 'package-archives
-             `("melpa" . ,(if sanityinc/no-ssl
-                              "http://melpa.org/packages/"
-                            "https://melpa.org/packages/")))
-
-;; NOTE: In case of MELPA problems, the official mirror URL is
-;; https://www.mirrorservice.org/sites/stable.melpa.org/packages/
-
-
-
+(setq package-archives
+      '(("gnu" . "http://elpa.gnu.org/packages/")
+        ("marmalade" . "http://marmalade-repo.org/packages/")
+        ("melpa" . "http://melpa.org/packages/")
+        ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
 ;;; On-demand installation of packages
 
@@ -77,31 +41,6 @@ locate PACKAGE."
 
 (setq package-enable-at-startup nil)
 (package-initialize)
-
-
-
-(require-package 'fullframe)
-(fullframe list-packages quit-window)
-
-
-(require-package 'cl-lib)
-(require 'cl-lib)
-
-(defun sanityinc/set-tabulated-list-column-width (col-name width)
-  "Set any column with name COL-NAME to the given WIDTH."
-  (when (> width (length col-name))
-    (cl-loop for column across tabulated-list-format
-             when (string= col-name (car column))
-             do (setf (elt column 1) width))))
-
-(defun sanityinc/maybe-widen-package-menu-columns ()
-  "Widen some columns of the package menu table to avoid truncation."
-  (when (boundp 'tabulated-list-format)
-    (sanityinc/set-tabulated-list-column-width "Version" 13)
-    (let ((longest-archive-name (apply 'max (mapcar 'length (mapcar 'car package-archives)))))
-      (sanityinc/set-tabulated-list-column-width "Archive" longest-archive-name))))
-
-(add-hook 'package-menu-mode-hook 'sanityinc/maybe-widen-package-menu-columns)
 
 
 (provide 'init-elpa)

@@ -28,6 +28,10 @@
 (global-set-key (kbd "C--") 'er/contract-region)
 (global-set-key (kbd "C-;") #'comment-line)
 
+;; BUG: setting a mark with C-SPC after quitting expand-region with C-g
+;; https://github.com/magnars/expand-region.el/issues/220
+(setq shift-select-mode nil)
+
 ;; Look & Feel
 ;; ===========
 (load-theme 'zenburn t)
