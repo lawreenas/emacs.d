@@ -1,6 +1,6 @@
 ;; smartparens
 ;; ===========
-(require-package 'smartparens)
+(use-package smartparens)
 
 (define-key smartparens-mode-map (kbd "C-M-f") 'sp-forward-sexp)
 (define-key smartparens-mode-map (kbd "C-M-b") 'sp-backward-sexp)

@@ -1,16 +1,16 @@
 ;; Projectile
 ;; ==========
-(require-package 'projectile)
+(use-package projectile)
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 
 ;; Helm-Projectile
-(require-package 'helm-projectile)
+(use-package helm-projectile)
 (helm-projectile-on)
 
 ;; Helm
 ;; ====
-(require-package 'helm-swoop)
+(use-package helm-swoop)
 
 ;;(require 'helm-config)
 

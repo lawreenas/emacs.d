@@ -1,4 +1,4 @@
-(require-package 'magit)
+(use-package magit)
 
 ;; Keys
 ;; ====

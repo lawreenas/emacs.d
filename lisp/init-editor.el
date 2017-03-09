@@ -1,5 +1,3 @@
-(require-package 'zenburn-theme)
-
 ;; Settings
 ;; ========
 ;; Global things and tweaks, to make overall experience better
@@ -12,43 +10,53 @@
 
 ;; Settings - Company mode
 ;; =======================
-(require-package 'company-tern)
+(use-package company-tern)
 (add-hook 'after-init-hook 'global-company-mode) ;; Autocomplete
 
 ;; Whitespace cleanup
 ;; ==================
-(require-package 'whitespace-cleanup-mode)
+(use-package whitespace-cleanup-mode)
 (whitespace-cleanup)
 (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
 
 ;; Expand region
 ;; https://github.com/magnars/expand-region.el
-(require-package 'expand-region)
+(use-package expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "C--") 'er/contract-region)
+(global-set-key (kbd "C--") 'er/contract-regiqon)
 (global-set-key (kbd "C-;") #'comment-line)
-
 ;; BUG: setting a mark with C-SPC after quitting expand-region with C-g
 ;; https://github.com/magnars/expand-region.el/issues/220
 (setq shift-select-mode nil)
 
 ;; Look & Feel
 ;; ===========
-(load-theme 'zenburn t)
+;; (use-package zenburn-theme)
+;; (load-theme 'zenburn t)
+(load-theme 'leuven t)
 
 (tool-bar-mode -1)     ;; Hide toolbar
 (scroll-bar-mode -1)   ;; Hide scrollbar
 (column-number-mode 1) ;; Show not only line, but also column number of cursor in the status line
 (winner-mode 1)        ;; Cycle through window layouts used. C-c <left> <right>
 
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode) ;;  highlights parens, brackets, and braces according to their depth
+
 ;; Beacon
 ;; ======
-(require-package 'beacon)
+(use-package beacon)
 (beacon-mode 1)        ;; Highlight cursor whenever it jumps to different window
 
 ;; Linum-Mode
 ;; ==========
 (global-linum-mode 1) ;; Show line numbers
+
+;; Backups
+;; =======
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 
 ;; Other
 ;; =====

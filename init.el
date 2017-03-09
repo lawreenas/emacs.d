@@ -7,42 +7,36 @@
 (package-initialize)
 
 (add-to-list 'load-path  "~/.emacs.d/lisp/")
-;;(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-
-;;(require 'init-benchmarking) ;; Measure startup time
-
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
 (package-install-selected-packages)
 
-;;(eval-when-compile
-;;  (require 'use-package))
+(eval-when-compile
+ (require 'use-package))
 
 ;; Setup modes
 (defconst *is-a-mac* (eq system-type 'darwin))
 
 ;; Core things
 ;; -----------
-(require 'init-osx)
-(require 'init-elpa)
+(use-package init-osx)
+;;(require 'init-elpa)
 
 ;; Editor styles
 ;; -------------
-(require 'init-editor)
+(use-package init-editor)
 
 ;; Different additions
 ;; -------------------
-(require 'init-projectile-helm)
+(use-package init-projectile-helm)
 (require 'init-smartparens)
 (require 'init-git)
-(require 'init-js)
-(require 'init-org)
-(require 'init-md)
+(use-package init-js)
+;; (require 'init-org)
+;; (require 'init-md)
 (require 'init-avy)
 
-(when (file-exists-p custom-file)
-  (load custom-file))
-
-(provide 'init)
+;;(provide 'init)
