@@ -12,6 +12,7 @@
 ;; =======================
 (use-package company-tern)
 (add-hook 'after-init-hook 'global-company-mode) ;; Autocomplete
+(add-to-list 'company-backends 'company-yasnippet)
 
 ;; Whitespace cleanup
 ;; ==================
@@ -23,7 +24,7 @@
 ;; https://github.com/magnars/expand-region.el
 (use-package expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "C--") 'er/contract-regiqon)
+(global-set-key (kbd "C--") 'er/contract-region)
 (global-set-key (kbd "C-;") #'comment-line)
 ;; BUG: setting a mark with C-SPC after quitting expand-region with C-g
 ;; https://github.com/magnars/expand-region.el/issues/220
@@ -41,6 +42,8 @@
 (winner-mode 1)        ;; Cycle through window layouts used. C-c <left> <right>
 
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode) ;;  highlights parens, brackets, and braces according to their depth
+
+
 
 ;; Beacon
 ;; ======

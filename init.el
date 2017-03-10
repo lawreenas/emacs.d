@@ -31,12 +31,15 @@
 
 ;; Different additions
 ;; -------------------
-(use-package init-projectile-helm)
-(require 'init-smartparens)
-(require 'init-git)
+(use-package init-projectile)
+(use-package init-helm)
+(use-package init-smartparens)
+(use-package init-git)
 (use-package init-js)
 ;; (require 'init-org)
 ;; (require 'init-md)
-(require 'init-avy)
+(use-package init-avy)
+(use-package init-yasnippet)
 
-;;(provide 'init)
+(provide 'init)
+;;; init.el ends here

@@ -24,7 +24,7 @@
 
 ;; disable jshint since we prefer eslint checking
 ;; (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(javascript-jshint)))
-
+(setq-default flycheck-check-syntax-automatically '(save idle-change new-line)) ;; Dont run flycheck when file is open
 (add-hook 'prog-mode-hook 'flycheck-mode)
 ;; (global-flycheck-mode)
 (defun my/use-eslint-from-node-modules ()
@@ -39,8 +39,9 @@
 
 (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
 
-(use-package eslintd-fix-mode)
-(add-hook 'js2-mode-hook 'eslintd-fix-mode)
-(add-hook 'rjsx-mode-hook 'eslintd-fix-mode)
+;; Auto-fix eslint on save
+;;(use-package eslintd-fix-mode)
+;;(add-hook 'js2-mode-hook 'eslintd-fix-mode)
+;;(add-hook 'rjsx-mode-hook 'eslintd-fix-mode)
 
 (provide 'init-js)
