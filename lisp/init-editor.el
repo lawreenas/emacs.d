@@ -12,7 +12,7 @@
 ;; =======================
 (use-package company-tern)
 (add-hook 'after-init-hook 'global-company-mode) ;; Autocomplete
-(add-to-list 'company-backends 'company-yasnippet)
+(add-to-list 'company-backends 'company-yasnippet) ;; Autocomplete snippets
 
 ;; Whitespace cleanup
 ;; ==================

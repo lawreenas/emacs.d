@@ -15,19 +15,13 @@
 (package-install-selected-packages)
 
 (eval-when-compile
- (require 'use-package))
-
-;; Setup modes
-(defconst *is-a-mac* (eq system-type 'darwin))
+  (require 'use-package))
 
 ;; Core things
 ;; -----------
 (use-package init-osx)
-;;(require 'init-elpa)
-
-;; Editor styles
-;; -------------
 (use-package init-editor)
+;;(require 'init-elpa)
 
 ;; Different additions
 ;; -------------------
@@ -36,10 +30,10 @@
 (use-package init-smartparens)
 (use-package init-git)
 (use-package init-js)
-;; (require 'init-org)
-;; (require 'init-md)
 (use-package init-avy)
 (use-package init-yasnippet)
+;; (require 'init-org)
+;; (require 'init-md)
 
 (provide 'init)
 ;;; init.el ends here
