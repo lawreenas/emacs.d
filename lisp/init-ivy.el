@@ -14,14 +14,16 @@
         ("C-'" . ivy-avy))
   :config
   (ivy-mode 1)
-  (counsel-projectile-on) ;;https://github.com/ericdanan/counsel-projectile
+  (require 'smex) ;; show most recent M-x commands at the top
+  (counsel-projectile-on) ;; https://github.com/ericdanan/counsel-projectile
   (setq ivy-use-virtual-buffers t)
-  (setq ivy-height 10)   ;; number of result lines to display
+  (setq ivy-height 13)   ;; number of result lines to display
   ;; (setq ivy-count-format "")  ;; does not count candidates
   (setq ivy-initial-inputs-alist nil)   ;; no regexp by default
   (setq ivy-re-builders-alist   ;; configure regexp engine.
         '((t   . ivy--regex-ignore-order))))         ;; allow input not in order
 
+(ivy-mode 1)
 
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)

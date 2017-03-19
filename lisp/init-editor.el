@@ -3,16 +3,10 @@
 ;; Global things and tweaks, to make overall experience better
 
 (setq inhibit-splash-screen t) ;; Dont show welcome screen
-(desktop-save-mode)            ;; Reopen last item after close
+;; (desktop-save-mode)            ;; Reopen last item after close
 (global-hl-line-mode)          ;; Highline current line
 (prefer-coding-system 'utf-8)  ;; Encoding
 (windmove-default-keybindings) ;; Move from window to window using shift+arrow keys: S-<left> (right, up, down)
-
-;; Settings - Company mode
-;; =======================
-(use-package company-tern)
-(add-hook 'after-init-hook 'global-company-mode) ;; Autocomplete
-(add-to-list 'company-backends 'company-yasnippet) ;; Autocomplete snippets
 
 ;; Whitespace cleanup
 ;; ==================

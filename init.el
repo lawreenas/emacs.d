@@ -26,8 +26,8 @@
 ;; Different additions
 ;; -------------------
 (use-package init-projectile)
-;; (use-package init-helm)
-(use-package init-ivy)
+(use-package init-helm)
+;; (use-package init-ivy)
 (use-package init-smartparens)
 (use-package init-git)
 (use-package init-js)

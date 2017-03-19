@@ -44,4 +44,18 @@
 ;;(add-hook 'js2-mode-hook 'eslintd-fix-mode)
 ;;(add-hook 'rjsx-mode-hook 'eslintd-fix-mode)
 
+
+
+
+;; Settings - Company mode
+;; =======================
+(add-hook 'after-init-hook 'global-company-mode) ;; Autocomplete
+ ;; Autocomplete snippets
+
+(add-hook 'rjsx-mode-hook
+          (lambda ()
+            (tern-mode t)
+            (add-to-list 'company-backends 'company-tern)))
+;;(add-to-list 'company-backends 'company-yasnippet)
+
 (provide 'init-js)
