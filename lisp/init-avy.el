@@ -3,6 +3,6 @@
 ;; ----------------------------------------
 (use-package avy)
 (setq avy-background t)
-(global-set-key (kbd "C-c j") 'avy-goto-char-timer)
+(global-set-key (kbd "C-j") 'avy-goto-char-timer)
 
 (provide 'init-avy)

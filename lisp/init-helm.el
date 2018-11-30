@@ -34,6 +34,8 @@
 (global-set-key (kbd "C-c k") 'helm-show-kill-ring)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-s") 'helm-swoop)
+(global-set-key (kbd "C-c r") 'helm-resume)
+(global-set-key (kbd "C-c C-s") 'helm-projectile-ag)
 
 (provide 'init-helm)
 ;;; init-helm ends here

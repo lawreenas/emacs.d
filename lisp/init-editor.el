@@ -26,9 +26,24 @@
 
 ;; Look & Feel
 ;; ===========
-;; (use-package zenburn-theme)
-;; (load-theme 'zenburn t)
-(load-theme 'leuven t)
+(use-package zenburn-theme)
+(load-theme 'zenburn t)
+;; (load-theme 'leuven t)       ;; Set theme
+;; (use-package doom-themes
+;;   :ensure t
+;;   :config
+;;   (load-theme 'doom-one t))
+
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/GitHub-Theme-for-Emacs")
+;;(load-theme 'github t)
+
+;; Set font
+;; --------
+;; (set-frame-font "Monaco-12")
+;; (set-frame-font "Inconsolata-14")
+(set-frame-font "Menlo-14")
+;; (set-face-attribute 'default nil :font "DejaVu Sans Mono-14")
+;; (set-face-attribute 'mode-line nil :font "Menlo-10")
 
 (tool-bar-mode -1)     ;; Hide toolbar
 (scroll-bar-mode -1)   ;; Hide scrollbar
@@ -46,7 +61,7 @@
 
 ;; Linum-Mode
 ;; ==========
-(global-linum-mode 1) ;; Show line numbers
+;; (global-linum-mode 1) ;; Show line numbers
 
 ;; Backups
 ;; =======
@@ -61,6 +76,11 @@
 (setq-default tab-width 2) ;; Set default indentation to 2 spaces
 
 (fset 'yes-or-no-p 'y-or-n-p) ;; Never type yes or no again
+
+
+;; add if to apply just for ZENBURN theme
+(set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
+
 
 
 (provide 'init-editor)
