@@ -26,6 +26,8 @@
 
 ;; Keys
 ;; ====
+(global-set-key (kbd "C-c p s s") 'helm-projectile-ag)
+(global-set-key (kbd "C-c p p") 'helm-projectile-switch-project)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-c s") 'helm-swoop)
 (global-set-key (kbd "C-c h") 'helm-projectile)
